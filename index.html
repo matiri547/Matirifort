@@ -3,165 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matirifort - Vidéos & Photos Adultes</title>
+  <title>Matirifort - Contenu réservé aux adultes</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Arial,sans-serif; background:#000; color:#fff; }
+    .age-warning {
+      position: fixed; top:0; left:0; width:100vw; height:100vh;
+      background: rgba(0,0,0,0.95);
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; z-index:9999;
     }
-    header {
-      background: #e60073;
-      padding: 15px;
-      text-align: center;
-      font-size: 26px;
-      font-weight: bold;
+    .age-warning button {
+      margin:10px; padding:10px 20px; font-size:16px; cursor:pointer;
+      background:#e60073; color:#fff; border:none; border-radius:5px;
     }
-    nav {
-      background: #222;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      gap: 20px;
+    header { background:#e60073; padding:20px; text-align:center; font-size:28px; font-weight:bold; }
+    main { padding:20px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; }
+    .thumbnail { background:#222; padding:10px; border-radius:8px; text-align:center; cursor:pointer; }
+    .thumbnail img { width:100%; height:auto; border-radius:6px; }
+    footer { text-align:center; padding:20px; background:#111; font-size:14px; color:#aaa; }
+    form { margin-top:40px; background:#111; padding:20px; border-radius:10px; }
+    form input, form textarea, form button { width:100%; margin-top:10px; padding:10px; border:none; border-radius:5px; }
+    form button { background:#e60073; color:white; font-weight:bold; }
+
+    /* === SLIDESHOW LIGHTBOX === */
+    .lightbox {
+      display:none; position:fixed; z-index:10000; top:0; left:0;
+      width:100%; height:100%; background:rgba(0,0,0,0.95); text-align:center;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+    .lightbox-content {
+      margin:auto; margin-top:5%; width:90%; max-width:800px; border-radius:10px;
     }
-    nav a:hover {
-      color: #e60073;
+    .close { position:absolute; top:15px; right:35px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer; }
+    .prev, .next {
+      cursor:pointer; position:absolute; top:50%; width:auto; padding:16px; margin-top:-50px;
+      color:white; font-weight:bold; font-size:30px; border-radius:0 3px 3px 0; user-select:none;
     }
-    .container {
-      padding: 20px;
-    }
-    h2 {
-      margin-top: 40px;
-      border-left: 5px solid #e60073;
-      padding-left: 10px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .card {
-      background: #222;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .card p {
-      padding: 10px;
-      font-size: 14px;
-    }
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #aaa;
-    }
-    .ad {
-      margin: 20px 0;
-      text-align: center;
-    }
+    .next { right:0; border-radius:3px 0 0 3px; }
+    .prev:hover, .next:hover, .close:hover { color:#e60073; }
+
+    /* === BANNIERE PUBLICITAIRE === */
+    .ad-banner { width:100%; text-align:center; margin:10px 0; }
   </style>
 </head>
 <body>
-
-  <header>Matirifort - Contenu Adulte</header>
-
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#">Vidéos</a>
-    <a href="#">Photos</a>
-    <a href="#">Catégories</a>
-    <a href="#">Contact</a>
-  </nav>
-
-  <div class="container">
-
-    <!-- PUB HAUT -->
-    <div class="ad">
-      <iframe scrolling="no" frameborder="0"
-        style="padding:0; margin:0; border:0; width:100%; height:96px;"
-        src="https://refbanners.com/I?tag=d_4682931m_127924c_&site=4682931&ad=127924">
-      </iframe>
-    </div>
-
-    <h2>Vidéos populaires</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Vid%C3%A9o+1" alt="Vidéo 1">
-        <p>Titre Vidéo 1</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Vid%C3%A9o+2" alt="Vidéo 2">
-        <p>Titre Vidéo 2</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Vid%C3%A9o+3" alt="Vidéo 3">
-        <p>Titre Vidéo 3</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Vid%C3%A9o+4" alt="Vidéo 4">
-        <p>Titre Vidéo 4</p>
-      </div>
-    </div>
-
-    <!-- PUB MILIEU -->
-    <div class="ad">
-      <iframe scrolling="no" frameborder="0"
-        style="padding:0; margin:0; border:0; width:100%; height:96px;"
-        src="https://refbanners.com/I?tag=d_4682931m_127924c_&site=4682931&ad=127924">
-      </iframe>
-    </div>
-
-    <h2>Photos sexy</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Photo+1" alt="Photo 1">
-        <p>Modèle 1</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Photo+2" alt="Photo 2">
-        <p>Modèle 2</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Photo+3" alt="Photo 3">
-        <p>Modèle 3</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200?text=Photo+4" alt="Photo 4">
-        <p>Modèle 4</p>
-      </div>
-    </div>
-
-    <!-- PUB BAS -->
-    <div class="ad">
-      <iframe scrolling="no" frameborder="0"
-        style="padding:0; margin:0; border:0; width:100%; height:96px;"
-        src="https://refbanners.com/I?tag=d_4682931m_127924c_&site=4682931&ad=127924">
-      </iframe>
-    </div>
-
+  <div class="age-warning" id="ageGate">
+    <h1>Matirifort - Site réservé aux adultes</h1>
+    <p>Ce site contient du contenu réservé à un public majeur (18+). Veuillez confirmer votre âge.</p>
+    <button onclick="enterSite()">J'ai plus de 18 ans</button>
+    <button onclick="window.location.href='https://google.com'">Quitter</button>
   </div>
 
-  <footer>
-    &copy; 2025 Matirifort - Tous droits réservés. Site pour adultes (18+).
-  </footer>
+  <!-- BANNIERE PUBLICITAIRE EN HAUT -->
+  <div class="ad-banner">
+    <iframe scrolling="no" frameborder="0" width="728" height="90" 
+            src="https://refbanners.com/I?tag=d_4682931m_127924c_&site=4682931&ad=127924">
+    </iframe>
+  </div>
 
+  <header>Matirifort - Contenu Adulte Exclusif</header>
+
+  <main>
+    <h2>Vidéos récentes</h2>
+    <div class="grid">
+      <div class="thumbnail" onclick="openVideo(0)">
+        <img src="IMG_20250728_151328_479.jpg" alt="Vidéo 1">
+        <p>Vidéo 1</p>
+      </div>
+      <div class="thumbnail" onclick="openVideo(1)">
+        <img src="IMG_20250728_151412_214.jpg" alt="Vidéo 2">
+        <p>Vidéo 2</p>
+      </div>
+      <div class="thumbnail" onclick="openVideo(2)">
+        <img src="IMG_20250728_151319_349.jpg" alt="Vidéo 3">
+        <p>Vidéo 3</p>
+      </div>
+      <div class="thumbnail" onclick="openVideo(3)">
+        <img src="IMG_20250728_151324_330.jpg" alt="Vidéo 4">
+        <p>Vidéo 4</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:40px;">Photos sexy</h2>
+    <div class="grid">
+      <div class="thumbnail" onclick="openPhoto(0)">
+        <img src="IMG_20250728_152307_894.jpg" alt="Photo 1"><p>Modèle 1</p>
+      </div>
+      <div class="thumbnail" onclick="openPhoto(1)">
+        <img src="IMG_20250728_151659_738.jpg" alt="Photo 2"><p>Modèle 2</p>
+      </div>
+      <div class="thumbnail" onclick="openPhoto(2)">
+        <img src="IMG_20250728_151659_361.jpg" alt="Photo 3"><p>Modèle 3</p>
+      </div>
+      <div class="thumbnail" onclick="openPhoto(3)">
+        <img src="IMG_20250728_151900_857.jpg" alt="Photo 4"><p>Modèle 4</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:40px;">Contact / Soumettre une vidéo</h2>
+    <form onsubmit="alert('Merci pour votre soumission. Elle sera examinée.'); return false;">
+      <input type="text" placeholder="Nom ou pseudo" required>
+      <input type="email" placeholder="Email de contact" required>
+      <textarea rows="5" placeholder="Lien vers la vidéo ou message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </main>
+
+  <footer>&copy; 2025 Matirifort. Tous droits réservés. Site pour adultes 18+.</footer>
+
+  <!-- === LIGHTBOX PHOTO === -->
+  <div id="lightboxPhoto" class="lightbox">
+    <span class="close" onclick="closePhoto()">&times;</span>
+    <img class="lightbox-content" id="lightboxPhotoImg">
+    <a class="prev" onclick="changePhoto(-1)">&#10094;</a>
+    <a class="next" onclick="changePhoto(1)">&#10095;</a>
+  </div>
+
+  <!-- === LIGHTBOX VIDEO === -->
+  <div id="lightboxVideo" class="lightbox">
+    <span class="close" onclick="closeVideo()">&times;</span>
+    <video class="lightbox-content" id="lightboxVideoPlayer" controls></video>
+    <a class="prev" onclick="changeVideo(-1)">&#10094;</a>
+    <a class="next" onclick="changeVideo(1)">&#10095;</a>
+  </div>
+
+  <script>
+    function enterSite() { document.getElementById('ageGate').style.display='none'; }
+
+    // === PHOTOS ===
+    const photos = [
+      "IMG_20250728_152307_894.jpg",
+      "IMG_20250728_151659_738.jpg",
+      "IMG_20250728_151659_361.jpg",
+      "IMG_20250728_151900_857.jpg"
+    ];
+    let photoIndex = 0;
+    function openPhoto(i){ photoIndex=i; document.getElementById("lightboxPhoto").style.display="block"; document.getElementById("lightboxPhotoImg").src=photos[i]; }
+    function closePhoto(){ document.getElementById("lightboxPhoto").style.display="none"; }
+    function changePhoto(n){ photoIndex=(photoIndex+n+photos.length)%photos.length; document.getElementById("lightboxPhotoImg").src=photos[photoIndex]; }
+
+    // === VIDEOS ===
+    const videos = [
+      {thumb:"IMG_20250728_151328_479.jpg", src:"IMG_20250728_152648_630.mp4"},
+      {thumb:"IMG_20250728_151412_214.jpg", src:"IMG_20250728_152415_178.mp4"},
+      {thumb:"IMG_20250728_151319_349.jpg", src:"IMG_20250728_152612_601.mp4"},
+      {thumb:"IMG_20250728_151324_330.jpg", src:"IMG_20250728_152352_204.mp4"}
+    ];
+    let videoIndex = 0;
+    function openVideo(i){
+      videoIndex=i; 
+      const player = document.getElementById("lightboxVideoPlayer");
+      player.src = videos[i].src;
+      document.getElementById("lightboxVideo").style.display="block";
+      player.play();
+    }
+    function closeVideo(){
+      const player = document.getElementById("lightboxVideoPlayer");
+      player.pause(); player.src="";
+      document.getElementById("lightboxVideo").style.display="none";
+    }
+    function changeVideo(n){
+      videoIndex=(videoIndex+n+videos.length)%videos.length;
+      openVideo(videoIndex);
+    }
+  </script>
 </body>
 </html>
